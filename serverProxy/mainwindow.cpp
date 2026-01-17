@@ -46,11 +46,11 @@ void MainWindow::proxyServerConnect(){
 }
 
 void MainWindow::displayValues(QString& payload){
-    QLabel* labelTransformer1Voltage = ui->labelT1V;
-    QLabel* labelTransformer1Power = ui->labelT1P;
+    QTextEdit* labelTransformer1Voltage = ui->labelT1V;
+    QTextEdit* labelTransformer1Power = ui->labelT1P;
 
-    QLabel* labelTransformer2Voltage = ui->labelT2V;
-    QLabel* labelTransformer2Power = ui->labelT2P;
+    QTextEdit* labelTransformer2Voltage = ui->labelT2V;
+    QTextEdit* labelTransformer2Power = ui->labelT2P;
 
     QStringList list = payload.split('\n');
 

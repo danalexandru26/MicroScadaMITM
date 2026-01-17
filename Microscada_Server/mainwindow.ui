@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1904</width>
-    <height>1217</height>
+    <width>655</width>
+    <height>756</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -17,8 +23,8 @@
    <widget class="QPushButton" name="sendDataTrans1">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>710</y>
+      <x>90</x>
+      <y>670</y>
       <width>88</width>
       <height>24</height>
      </rect>
@@ -30,8 +36,8 @@
    <widget class="QPushButton" name="sendDataTrans2">
     <property name="geometry">
      <rect>
-      <x>1190</x>
-      <y>710</y>
+      <x>400</x>
+      <y>670</y>
       <width>91</width>
       <height>24</height>
      </rect>
@@ -43,8 +49,8 @@
    <widget class="QDial" name="dialTrans1">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>600</y>
+      <x>90</x>
+      <y>560</y>
       <width>50</width>
       <height>64</height>
      </rect>
@@ -59,8 +65,8 @@
    <widget class="QDial" name="dialTrans2">
     <property name="geometry">
      <rect>
-      <x>1190</x>
-      <y>600</y>
+      <x>400</x>
+      <y>560</y>
       <width>50</width>
       <height>64</height>
      </rect>
@@ -75,8 +81,8 @@
    <widget class="QLabel" name="vTrans1">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>610</y>
+      <x>140</x>
+      <y>570</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -91,8 +97,8 @@
    <widget class="QLabel" name="vTrans2">
     <property name="geometry">
      <rect>
-      <x>1240</x>
-      <y>610</y>
+      <x>450</x>
+      <y>570</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -107,8 +113,8 @@
    <widget class="QWidget" name="generator2" native="true">
     <property name="geometry">
      <rect>
-      <x>1150</x>
-      <y>70</y>
+      <x>360</x>
+      <y>30</y>
       <width>251</width>
       <height>531</height>
      </rect>
@@ -228,8 +234,8 @@ color:red;</string>
    <widget class="QWidget" name="generator1" native="true">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>70</y>
+      <x>60</x>
+      <y>30</y>
       <width>251</width>
       <height>531</height>
      </rect>
@@ -349,8 +355,8 @@ color:red;</string>
    <widget class="QLabel" name="vTrans1_2">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>660</y>
+      <x>140</x>
+      <y>620</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -365,8 +371,8 @@ color:red;</string>
    <widget class="QDial" name="dialTrans1_2">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>650</y>
+      <x>90</x>
+      <y>610</y>
       <width>50</width>
       <height>64</height>
      </rect>
@@ -381,8 +387,8 @@ color:red;</string>
    <widget class="QLabel" name="vTrans2_2">
     <property name="geometry">
      <rect>
-      <x>1240</x>
-      <y>660</y>
+      <x>450</x>
+      <y>620</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -397,8 +403,8 @@ color:red;</string>
    <widget class="QDial" name="dialTrans2_2">
     <property name="geometry">
      <rect>
-      <x>1190</x>
-      <y>650</y>
+      <x>400</x>
+      <y>610</y>
       <width>50</width>
       <height>64</height>
      </rect>
@@ -410,16 +416,6 @@ color:red;</string>
      <number>6000</number>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1904</width>
-     <height>21</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
