@@ -115,19 +115,19 @@ void MainWindow::assignPowerNodes(QList<PowerNode*>& nodeList, QLCDNumber* volta
 }
 
 void MainWindow::initializeTCPSocket(){
-    TcpSocket = new QTcpSocket();
-    TcpSocket->connectToHost(QHostAddress::LocalHost, 8080);
+    SslSocket = new QSslSocket(this);
 
-    if(TcpSocket->waitForConnected(30000)){
-        qInfo()<<"Socket has successfully connected to the server";
-    }
-    else{
-        qInfo()<<"Socket has failed to connect to the server";
-        return;
-    }
+    QSslConfiguration conf = buildCertificates();
 
-    connect(TcpSocket, &QTcpSocket::readyRead, [=](){
-        QByteArray data = TcpSocket->readAll();
+    SslSocket->setSslConfiguration(conf);
+    SslSocket->connectToHostEncrypted("localhost", 8080);
+
+    connect(SslSocket, &QSslSocket::encrypted, this, [=]() {
+        qInfo() << "TLS handshake complete!";
+    });
+
+    connect(SslSocket, &QSslSocket::readyRead, this, [=]() {
+        QByteArray data = SslSocket->readAll();
         QString rawString = QString::fromUtf8(data);
 
         QStringList information = rawString.split('\n');
@@ -144,4 +144,25 @@ void MainWindow::initializeTCPSocket(){
             qInfo()<<"Gargage information: " << rawString<<'\n';
         }
     });
+}
+
+QSslConfiguration MainWindow::buildCertificates(){
+    QByteArray cert;
+    QFile file_cert("D:/keys/server.cert");
+
+    if(file_cert.open(QIODevice::ReadOnly)){
+        cert = file_cert.readAll();
+        file_cert.close();
+    }
+    else{
+        qDebug() << file_cert.errorString();
+    }
+
+    QSslCertificate ssl_cert(cert);
+    QList<QSslCertificate> listCA;
+    listCA.append(ssl_cert);
+    QSslConfiguration conf;
+    conf.setCaCertificates(listCA);
+
+    return conf;
 }

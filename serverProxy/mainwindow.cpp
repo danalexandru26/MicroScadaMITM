@@ -35,7 +35,7 @@ void MainWindow::proxyClientConnect(){
         QByteArray rawData = socketServer->readAll();
         QString data = QString::fromUtf8(rawData);
         displayValues(data);
-
+        sslConnectionWrapper->write(rawData);
     });
 }
 
@@ -49,10 +49,9 @@ void MainWindow::proxyServerConnect(){
 
     connect(proxyServer, &QTcpServer::newConnection, this, [=](){
         QTcpSocket* connection = proxyServer->nextPendingConnection();
-        int connectionDesc = connection->socketDescriptor();
 
         sslConnectionWrapper = new QSslSocket(this);
-        sslConnectionWrapper->setSocketDescriptor(connectionDesc);
+        sslConnectionWrapper->setSocketDescriptor(connection->socketDescriptor());
 
         QByteArray cert;
         QByteArray key;
@@ -79,7 +78,6 @@ void MainWindow::proxyServerConnect(){
             qInfo()<<ssl_key.algorithm();
         }
 
-
         sslConnectionWrapper->setLocalCertificate(ssl_cert);
         sslConnectionWrapper->setPrivateKey(ssl_key);
         qInfo()<<"Handshake credentials set\n";
@@ -88,11 +86,6 @@ void MainWindow::proxyServerConnect(){
 
         connect(sslConnectionWrapper, &QSslSocket::encrypted, this, [](){
             qInfo()<<"TLS Handshake";
-        });
-
-
-        connect(sslConnectionWrapper, &QSslSocket::readyRead, this, [=]() {
-            //client sends no data
         });
 
         connect(sslConnectionWrapper, &QSslSocket::disconnected, this, [=]() {
@@ -163,22 +156,22 @@ void MainWindow::onPressAlterValuesT1(){
     QString transformer2Voltage = ui->labelT2V_Proxy->toPlainText();
     QString transformer2Power = ui->labelT2P_Proxy->toPlainText();
 
-    if(socketClient && socketClient->state() == QAbstractSocket::ConnectedState){
+    if(sslConnectionWrapper && sslConnectionWrapper->state() == QAbstractSocket::ConnectedState){
         if(transformer1Voltage.length() > 0 && transformer1Power.length() > 0){
             QString data = "transformer1\n" + transformer1Voltage + "\n" + transformer1Power+"\n";
 
-            socketClient->write(data.toUtf8());
+            sslConnectionWrapper->write(data.toUtf8());
         }
     }
     else{
         qInfo()<<"Socket is not active!\n";
     }
 
-    if(socketClient && socketClient->state() == QAbstractSocket::ConnectedState){
+    if(sslConnectionWrapper && sslConnectionWrapper->state() == QAbstractSocket::ConnectedState){
         if(transformer2Voltage.length() > 0 && transformer2Power.length() > 0){
             QString data = "transformer2\n" + transformer2Voltage + "\n" + transformer2Power +"\n";
 
-            socketClient->write(data.toUtf8());
+            sslConnectionWrapper->write(data.toUtf8());
         }
     }
     else{
@@ -190,11 +183,11 @@ void MainWindow::onPressAlterValuesT2(){
     QString transformer2Voltage = ui->labelT2V_Proxy->toPlainText();
     QString transformer2Power = ui->labelT2P_Proxy->toPlainText();
 
-    if(socketClient && socketClient->state() == QAbstractSocket::ConnectedState){
+    if(sslConnectionWrapper && sslConnectionWrapper->state() == QAbstractSocket::ConnectedState){
         if(transformer2Voltage.length() > 0 && transformer2Power.length() > 0){
             QString data = "transformer2\n" + transformer2Voltage + "\n" + transformer2Power +"\n";
 
-            socketClient->write(data.toUtf8());
+            sslConnectionWrapper->write(data.toUtf8());
         }
     }
     else{

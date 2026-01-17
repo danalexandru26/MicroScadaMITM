@@ -9,6 +9,9 @@
 #include<QtNetwork/QHostAddress>
 #include<QByteArray>
 #include<QMessageBox>
+#include<QFile>
+#include<QSslConfiguration>
+#include<QSslSocket>
 
 #include"powernode.h"
 
@@ -32,6 +35,8 @@ private:
     void assignPowerNodes(QList<PowerNode*>& nodeList, QLCDNumber* voltage, QLCDNumber* power, int percentage);
     void initializeTCPSocket();
 
+    QSslConfiguration buildCertificates();
+
 private:
     Ui::MainWindow *ui;
 
@@ -40,7 +45,7 @@ private:
     QList<PowerNode*> powerDistributionA{};
     QList<PowerNode*> powerDistributionB{};
 
-    QTcpSocket* TcpSocket;
+    QSslSocket* SslSocket;
 
 
 };
