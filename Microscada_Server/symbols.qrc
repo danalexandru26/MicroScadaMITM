@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/symbols">
+        <file>symbols/resources/generator.svg</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="30" height="30">
+  <g transform="translate(15,15)" stroke-linecap="square">
+    <g stroke-width="1" fill="none" stroke="#000000" transform="translate(10,-10) rotate(135)" >
+      <line x1="0" y1="0" x2="28.28" y2="0" />
+      </g>
+    <g stroke-width="1" fill="none" stroke="#000000" transform="translate(10,10) rotate(-135)" >
+      <line x1="0" y1="0" x2="28.28" y2="0" />
+      </g>
+    <text transform="translate(15.8, 54.9) rotate(0 -5.8 -29.9)" font-family="Sans Serif,MS Sans Serif" font-size="18pt" fill="#000000"></text>
+  </g>
+  Your Browser does not support inline SVG!
+</svg>
+

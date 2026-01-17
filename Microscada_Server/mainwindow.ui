@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1904</width>
+    <height>1217</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="sendDataTrans1">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>710</y>
+      <width>88</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Send Data -T1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sendDataTrans2">
+    <property name="geometry">
+     <rect>
+      <x>1190</x>
+      <y>710</y>
+      <width>91</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Send Data - T2</string>
+    </property>
+   </widget>
+   <widget class="QDial" name="dialTrans1">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>600</y>
+      <width>50</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>10</number>
+    </property>
+    <property name="maximum">
+     <number>260</number>
+    </property>
+   </widget>
+   <widget class="QDial" name="dialTrans2">
+    <property name="geometry">
+     <rect>
+      <x>1190</x>
+      <y>600</y>
+      <width>50</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>10</number>
+    </property>
+    <property name="maximum">
+     <number>260</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vTrans1">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>610</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vTrans2">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>610</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="generator2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1150</x>
+      <y>70</y>
+      <width>251</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="label_89">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>350</y>
+       <width>9</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:red;</string>
+     </property>
+     <property name="text">
+      <string>V</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_63">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>350</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:red;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::VLine</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Plain</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_87">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>410</y>
+       <width>110</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 170, 127);
+font: 900 italic 9pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Power Generator 2</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="gen2V">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>350</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:transparent;
+color:red;</string>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::SegmentStyle::Flat</enum>
+     </property>
+     <property name="value" stdset="0">
+      <double>10000.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="gen2P">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>380</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:transparent;
+color:red;</string>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::SegmentStyle::Flat</enum>
+     </property>
+     <property name="value" stdset="0">
+      <double>10000.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_88">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>380</y>
+       <width>9</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(170, 170, 255);</string>
+     </property>
+     <property name="text">
+      <string>P</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="generator1" native="true">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>70</y>
+      <width>251</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="label_84">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>370</y>
+       <width>9</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(170, 170, 255);</string>
+     </property>
+     <property name="text">
+      <string>P</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_62">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>340</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:red;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::VLine</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Plain</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_85">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>400</y>
+       <width>110</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 170, 127);
+font: 900 italic 9pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Power Generator 1</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="gen1V">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>340</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:transparent;
+color:red;</string>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::SegmentStyle::Flat</enum>
+     </property>
+     <property name="value" stdset="0">
+      <double>10000.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="gen1P">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>370</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:transparent;
+color:red;</string>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::SegmentStyle::Flat</enum>
+     </property>
+     <property name="value" stdset="0">
+      <double>10000.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_86">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>340</y>
+       <width>9</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:red;</string>
+     </property>
+     <property name="text">
+      <string>V</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="vTrans1_2">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>660</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QDial" name="dialTrans1_2">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>650</y>
+      <width>50</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <number>6000</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vTrans2_2">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>660</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QDial" name="dialTrans2_2">
+    <property name="geometry">
+     <rect>
+      <x>1190</x>
+      <y>650</y>
+      <width>50</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <number>6000</number>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1904</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

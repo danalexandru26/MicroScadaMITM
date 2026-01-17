@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="20" height="20">
+  <g transform="translate(10,10)" stroke-linecap="square">
+    <text transform="translate(15.8, 34.9) rotate(0 -5.8 -29.9)" font-family="Sans Serif,MS Sans Serif" font-size="18pt" fill="#000000"></text>
+    <ellipse cx="0" cy="0" rx="5" ry="5" stroke-width="1" fill="none" stroke="#000000" />
+  </g>
+  Your Browser does not support inline SVG!
+</svg>
+

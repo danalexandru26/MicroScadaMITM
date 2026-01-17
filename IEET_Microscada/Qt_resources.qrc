@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/symbols">
+        <file>resources/IEC_60617/IEC_60617.svg</file>
+        <file>resources/IEC_60617/IEC_60617_Breaker.svg</file>
+        <file>resources/IEC_60617/IEC_60617_Capacitor.svg</file>
+        <file>resources/IEC_60617/IEC_60617_ConnectionLine.svg</file>
+        <file>resources/IEC_60617/IEC_60617_CrossCon.svg</file>
+        <file>resources/IEC_60617/IEC_60617_DirectCon.svg</file>
+        <file>resources/IEC_60617/IEC_60617_DotCon.svg</file>
+        <file>resources/IEC_60617/IEC_60617_FullD.svg</file>
+        <file>resources/IEC_60617/IEC_60617_HollowD.svg</file>
+        <file>resources/IEC_60617/IEC_60617_LineSrc.svg</file>
+        <file>resources/IEC_60617/IEC_60617_Switch.svg</file>
+        <file>resources/IEC_60617/IEC_60617_TCon.svg</file>
+        <file>resources/IEC_60617/IEC_60617_Transformer.svg</file>
+        <file>resources/IEC_60617/IEC_60617_Transformer2.svg</file>
+        <file>resources/IEC_60617/IEC_60617_VerLineSrc.svg</file>
+        <file>resources/IEC_60617/IEC_60617_ScadaDiagramMain.svg</file>
+    </qresource>
+</RCC>

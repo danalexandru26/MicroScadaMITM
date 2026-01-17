@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="60" height="20">
+  <defs>
+    <g id="terminal" stroke-width="1" stroke-linecap="square">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="#0000FF" />
+      <line x1="0" y1="1" x2="0" y2="4" stroke="#FF0000" />
+    </g>
+  </defs>
+  <g transform="translate(30,10)" stroke-linecap="square">
+    <text transform="translate(15.8, 34.9) rotate(0 -5.8 -29.9)" font-family="Sans Serif,MS Sans Serif" font-size="18pt" fill="#000000"></text>
+    <g stroke-width="1" fill="none" stroke="#000000" transform="translate(-20,0)" >
+      <line x1="0" y1="0" x2="40" y2="0" />
+      </g>
+    <use xlink:href="#terminal" x="-20" y="0" transform="rotate(270 -20 0)" />
+    <use xlink:href="#terminal" x="20" y="0" transform="rotate(90 20 0)" />
+  </g>
+  Your Browser does not support inline SVG!
+</svg>
+
