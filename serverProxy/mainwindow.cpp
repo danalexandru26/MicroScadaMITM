@@ -38,8 +38,37 @@ void MainWindow::proxyServerConnect(){
             QByteArray data = socketServer->readAll();
             QString rawData = QString::fromUtf8(data);
 
+            displayValues(rawData);
             socketClient->write(data);
         });
 
     });
+}
+
+void MainWindow::displayValues(QString& payload){
+    QLabel* labelTransformer1Voltage = ui->labelT1V;
+    QLabel* labelTransformer1Power = ui->labelT1P;
+
+    QLabel* labelTransformer2Voltage = ui->labelT2V;
+    QLabel* labelTransformer2Power = ui->labelT2P;
+
+    QStringList list = payload.split('\n');
+
+    if(list.size() < 3){
+        qInfo()<<"Invalid data format\n";
+        return;
+    }
+
+    if(list[0] == "transformer1"){
+        labelTransformer1Voltage->setText(list[1] + 'V');
+        labelTransformer1Power->setText(list[2] + 'W');
+    }
+    else if(list[0] == "transformer2"){
+        labelTransformer2Voltage->setText(list[1] + 'V');
+        labelTransformer2Power->setText(list[2] + 'W');
+    }
+    else{
+        qInfo()<<"Invalid payload header\n";
+        return;
+    }
 }

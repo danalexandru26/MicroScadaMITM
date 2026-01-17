@@ -23,6 +23,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void proxyServerConnect();
+    void displayValues(QString& payload);
 
 private:
     Ui::MainWindow *ui;
