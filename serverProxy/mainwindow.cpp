@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     connectEvents();
+
+    proxyClientConnect();
     proxyServerConnect();
 }
 
@@ -16,35 +18,109 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::proxyClientConnect(){
+    socketServer = new QSslSocket(this);
+
+    QSslConfiguration conf = buildCertificates();
+
+    socketServer->setSslConfiguration(conf);
+    socketServer->connectToHostEncrypted("localhost", 9000);
+
+    connect(socketServer, &QSslSocket::encrypted, this, [=]() {
+        qInfo() << "TLS handshake complete!";
+    });
+
+    connect(socketServer, &QSslSocket::readyRead, this, [=]() {
+        qInfo() << "TLS handshake complete - read available";
+        QByteArray rawData = socketServer->readAll();
+        QString data = QString::fromUtf8(rawData);
+        displayValues(data);
+
+    });
+}
+
 void MainWindow::proxyServerConnect(){
-    proxyServer = new  QTcpServer(this);
+    proxyServer = new QTcpServer(this);
 
     if(!proxyServer->listen(QHostAddress::LocalHost, 8080)){
         qInfo()<<"Proxy has failed to start\n";
     }
     qInfo()<<"Proxy has connected\n";
 
-    connect(proxyServer, &QTcpServer::newConnection, this, [this]() {
-        socketClient = proxyServer->nextPendingConnection();
+    connect(proxyServer, &QTcpServer::newConnection, this, [=](){
+        QTcpSocket* connection = proxyServer->nextPendingConnection();
+        int connectionDesc = connection->socketDescriptor();
 
-        socketServer = new QTcpSocket(this);
-        socketServer->connectToHost(QHostAddress::LocalHost, 9000);
+        sslConnectionWrapper = new QSslSocket(this);
+        sslConnectionWrapper->setSocketDescriptor(connectionDesc);
 
-        if(!socketServer->waitForConnected()){
-            qInfo()<<"Proxy cannot connect to central server\n";
+        QByteArray cert;
+        QByteArray key;
+
+        QFile file_cert("D:/keys/server.cert");
+        if(file_cert.open(QIODevice::ReadOnly)){
+            cert = file_cert.readAll();
+            file_cert.close();
         }
-        qInfo()<<"Proxy socket has connected to server on port: 9000\n";
+
+        QFile file_key("D:/keys/server.key");
+        if(file_key.open(QIODevice::ReadOnly)){
+            key = file_key.readAll();
+            file_key.close();
+        }
+        QSslCertificate ssl_cert(cert);
+        QSslKey ssl_key(key, QSsl::Rsa,QSsl::Pem,QSsl::PrivateKey);
+
+        if(!ssl_cert.isNull()){
+            qInfo()<<ssl_cert.subjectDisplayName();
+        }
+
+        if(!ssl_key.isNull()){
+            qInfo()<<ssl_key.algorithm();
+        }
 
 
-        connect(socketServer, &QTcpSocket::readyRead, this, [=]() {
-            QByteArray data = socketServer->readAll();
-            QString rawData = QString::fromUtf8(data);
+        sslConnectionWrapper->setLocalCertificate(ssl_cert);
+        sslConnectionWrapper->setPrivateKey(ssl_key);
+        qInfo()<<"Handshake credentials set\n";
 
-            displayValues(rawData);
-            socketClient->write(data);
+        sslConnectionWrapper->startServerEncryption();
+
+        connect(sslConnectionWrapper, &QSslSocket::encrypted, this, [](){
+            qInfo()<<"TLS Handshake";
         });
 
+
+        connect(sslConnectionWrapper, &QSslSocket::readyRead, this, [=]() {
+            //client sends no data
+        });
+
+        connect(sslConnectionWrapper, &QSslSocket::disconnected, this, [=]() {
+            qInfo() << "Client disconnected";
+            sslConnectionWrapper->deleteLater();
+        });
     });
+}
+
+QSslConfiguration MainWindow::buildCertificates(){
+    QByteArray cert;
+    QFile file_cert("D:/keys/server.cert");
+
+    if(file_cert.open(QIODevice::ReadOnly)){
+        cert = file_cert.readAll();
+        file_cert.close();
+    }
+    else{
+        qDebug() << file_cert.errorString();
+    }
+
+    QSslCertificate ssl_cert(cert);
+    QList<QSslCertificate> listCA;
+    listCA.append(ssl_cert);
+    QSslConfiguration conf;
+    conf.setCaCertificates(listCA);
+
+    return conf;
 }
 
 void MainWindow::displayValues(QString& payload){

@@ -8,6 +8,10 @@
 #include<QtNetwork/QHostAddress>
 #include<QByteArray>
 #include<QMessageBox>
+#include<QFile>
+#include<QSslSocket>
+#include<QSslKey>
+#include<QSslConfiguration>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,7 +26,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
     void proxyServerConnect();
+        void proxyClientConnect();
+    QSslConfiguration buildCertificates();
+
     void displayValues(QString& payload);
     void connectEvents();
 
@@ -32,7 +40,8 @@ public:
 private:
     Ui::MainWindow *ui;
     QTcpServer* proxyServer;
-    QTcpSocket* socketClient;
-    QTcpSocket* socketServer;
+
+    QSslSocket* socketServer;
+    QSslSocket* sslConnectionWrapper;
 };
 #endif // MAINWINDOW_H

@@ -196,7 +196,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Malicious Proxy", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "Malicious Proxy", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Received Values", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "Modified Values", nullptr));

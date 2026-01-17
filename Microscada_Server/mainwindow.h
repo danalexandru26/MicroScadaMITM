@@ -9,6 +9,9 @@
 #include<QByteArray>
 #include<QMessageBox>
 #include<QtSvgWidgets/QSvgWidget>
+#include<QSslSocket>
+#include<QFile>
+#include<QSslKey>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -37,6 +40,6 @@ private:
 private:
     Ui::MainWindow *ui;
     QTcpServer* TcpServer;
-    QTcpSocket* client;
+    QSslSocket* sslClient;
 };
 #endif // MAINWINDOW_H

@@ -51,28 +51,79 @@ void MainWindow::initializeTcpServer(){
     }
 
     connect(TcpServer, &QTcpServer::newConnection, this, [=]() {
-        client = TcpServer->nextPendingConnection();
+        QTcpSocket* client = TcpServer->nextPendingConnection();
         qInfo() << "Client connected";
 
-        connect(client, &QTcpSocket::readyRead, this, [=]() {
+        sslClient = new QSslSocket(this);
+        sslClient->setSocketDescriptor(client->socketDescriptor());
+
+        QByteArray cert;
+        QByteArray key;
+
+        QFile file_cert("D:/keys/server.cert");
+        if(file_cert.open(QIODevice::ReadOnly)){
+            cert = file_cert.readAll();
+            file_cert.close();
+        }
+
+        QFile file_key("D:/keys/server.key");
+        if(file_key.open(QIODevice::ReadOnly)){
+            key = file_key.readAll();
+            file_key.close();
+        }
+        QSslCertificate ssl_cert(cert);
+        QSslKey ssl_key(key, QSsl::Rsa,QSsl::Pem,QSsl::PrivateKey);
+
+        if(!ssl_cert.isNull()){
+            qInfo()<<ssl_cert.subjectDisplayName();
+        }
+
+        if(!ssl_key.isNull()){
+            qInfo()<<ssl_key.algorithm();
+        }
+
+
+        sslClient->setLocalCertificate(ssl_cert);
+        sslClient->setPrivateKey(ssl_key);
+        qInfo()<<"Handshake credentials set\n";
+
+        sslClient->startServerEncryption();
+
+        connect(sslClient, &QSslSocket::encrypted, this, [](){
+            qInfo()<<"TLS Handshake";
+        });
+
+
+        connect(sslClient, &QSslSocket::readyRead, this, [=]() {
             //client sends no data
         });
 
-        connect(client, &QTcpSocket::disconnected, this, [=]() {
+        connect(sslClient, &QSslSocket::disconnected, this, [=]() {
             qInfo() << "Client disconnected";
-            client->deleteLater();
+            sslClient->deleteLater();
+        });
+
+        connect(sslClient, &QSslSocket::sslErrors, this, [](const QList<QSslError> &errors){
+            for (const auto &err : errors) {
+                qWarning() << "SSL Error:" << err.errorString();
+            }
         });
     });
 }
 
 void MainWindow::onClickSendDataTrans1(){
-    if(client && client->state() == QAbstractSocket::ConnectedState){
+    if(sslClient && sslClient->state() == QAbstractSocket::ConnectedState){
         QString voltage =  QString::number(ui->dialTrans1->value()) + '\n';
         QString power  = QString::number(ui->dialTrans1_2->value());
 
+        if(sslClient && !sslClient->isEncrypted()){
+            qInfo() << "TLS handshake not finished, cannot send yet";
+            return;
+        }
+        qInfo()<<"Can send TLS encrypted data\n";
         QString messageTransformer1 = "transformer1\n" +  voltage + power;
-        client->write(messageTransformer1.toUtf8());
-        client->flush();
+        sslClient->write(messageTransformer1.toUtf8());
+        sslClient->flush();
     }
     else{
         qInfo()<<"No client is connected\n";
@@ -80,13 +131,19 @@ void MainWindow::onClickSendDataTrans1(){
 }
 
 void MainWindow::onClickSendDataTrans2(){
-    if(client && client->state() == QAbstractSocket::ConnectedState){
+    if(sslClient && sslClient->state() == QAbstractSocket::ConnectedState){
         QString voltage =  QString::number(ui->dialTrans2->value()) + '\n';
         QString power  = QString::number(ui->dialTrans2_2->value());
 
         QString messageTransformer1 = "transformer2\n" +  voltage + power;
-        client->write(messageTransformer1.toUtf8());
-        client->flush();
+
+        if(sslClient && !sslClient->isEncrypted()){
+            qInfo() << "TLS handshake not finished, cannot send yet";
+            return;
+        }
+        qInfo()<<"Can send TLS encrypted data\n";
+        sslClient->write(messageTransformer1.toUtf8());
+        sslClient->flush();
     }
     else{
         qInfo()<<"No client is connected\n";
@@ -100,8 +157,6 @@ void MainWindow::onChangeDialTrans1(){
     auto powerGeneratorVoltage = ui->gen1V;
 
     powerGeneratorVoltage->display(ui->dialTrans1->value());
-
-
 }
 
 void MainWindow::onChangeDialTrans2(){
