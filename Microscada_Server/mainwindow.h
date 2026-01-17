@@ -32,6 +32,8 @@ private:
     void onChangeDialTrans1P();
     void onChangeDialTrans2P();
 
+    void connectEvents();
+
 private:
     Ui::MainWindow *ui;
     QTcpServer* TcpServer;

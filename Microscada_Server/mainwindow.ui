@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>655</width>
-    <height>756</height>
+    <height>1038</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -24,7 +24,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>670</y>
+      <y>880</y>
       <width>88</width>
       <height>24</height>
      </rect>
@@ -37,7 +37,7 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>670</y>
+      <y>880</y>
       <width>91</width>
       <height>24</height>
      </rect>
@@ -50,7 +50,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>560</y>
+      <y>770</y>
       <width>50</width>
       <height>64</height>
      </rect>
@@ -66,7 +66,7 @@
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>560</y>
+      <y>770</y>
       <width>50</width>
       <height>64</height>
      </rect>
@@ -82,7 +82,7 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>570</y>
+      <y>780</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -98,7 +98,7 @@
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>570</y>
+      <y>780</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -114,7 +114,7 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>30</y>
+      <y>240</y>
       <width>251</width>
       <height>531</height>
      </rect>
@@ -191,7 +191,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLCDNumber" name="gen2P">
@@ -211,7 +214,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLabel" name="label_88">
@@ -235,7 +241,7 @@ color:red;</string>
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>30</y>
+      <y>240</y>
       <width>251</width>
       <height>531</height>
      </rect>
@@ -312,7 +318,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLCDNumber" name="gen1P">
@@ -332,7 +341,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLabel" name="label_86">
@@ -356,7 +368,7 @@ color:red;</string>
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>620</y>
+      <y>830</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -372,7 +384,7 @@ color:red;</string>
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>610</y>
+      <y>820</y>
       <width>50</width>
       <height>64</height>
      </rect>
@@ -388,7 +400,7 @@ color:red;</string>
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>620</y>
+      <y>830</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -404,7 +416,7 @@ color:red;</string>
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>610</y>
+      <y>820</y>
       <width>50</width>
       <height>64</height>
      </rect>
@@ -414,6 +426,23 @@ color:red;</string>
     </property>
     <property name="maximum">
      <number>6000</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>40</y>
+      <width>499</width>
+      <height>47</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:red;
+font: 26pt &quot;Segoe UI&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Power Generator Control Center</string>
     </property>
    </widget>
   </widget>

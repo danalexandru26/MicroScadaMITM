@@ -7,13 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    connect(ui->sendDataTrans1, &QPushButton::clicked, this, &MainWindow::onClickSendDataTrans1);
-    connect(ui->sendDataTrans2, &QPushButton::clicked, this, &MainWindow::onClickSendDataTrans2);
-    connect(ui->dialTrans1, &QDial::valueChanged, this, &MainWindow::onChangeDialTrans1);
-    connect(ui->dialTrans2, &QDial::valueChanged, this, &MainWindow::onChangeDialTrans2);
-    connect(ui->dialTrans1_2, &QDial::valueChanged, this, &MainWindow::onChangeDialTrans1P);
-    connect(ui->dialTrans2_2, &QDial::valueChanged, this, &MainWindow::onChangeDialTrans2P);
-
+    connectEvents();
     initializeTcpServer();
 
     QString scadaDiagramSource = ":/symbols/symbols/resources/generator.svg";
@@ -35,6 +29,15 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::connectEvents(){
+    connect(ui->sendDataTrans1, &QPushButton::clicked, this, &MainWindow::onClickSendDataTrans1);
+    connect(ui->sendDataTrans2, &QPushButton::clicked, this, &MainWindow::onClickSendDataTrans2);
+    connect(ui->dialTrans1, &QDial::valueChanged, this, &MainWindow::onChangeDialTrans1);
+    connect(ui->dialTrans2, &QDial::valueChanged, this, &MainWindow::onChangeDialTrans2);
+    connect(ui->dialTrans1_2, &QDial::valueChanged, this, &MainWindow::onChangeDialTrans1P);
+    connect(ui->dialTrans2_2, &QDial::valueChanged, this, &MainWindow::onChangeDialTrans2P);
 }
 
 void MainWindow::initializeTcpServer(){

@@ -518,7 +518,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLCDNumber" name="trafo1P">
@@ -616,7 +619,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLCDNumber" name="capBankV1">
@@ -636,7 +642,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLCDNumber" name="capBankP1">
@@ -734,7 +743,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLCDNumber" name="ext2P">
@@ -774,7 +786,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QFrame" name="frame_6">
@@ -833,7 +848,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QFrame" name="frame_7">
@@ -872,7 +890,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QFrame" name="frame_8">
@@ -951,7 +972,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QFrame" name="frame_9">
@@ -990,7 +1014,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLCDNumber" name="capBank2P">
@@ -1069,7 +1096,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QFrame" name="frame_11">
@@ -1108,7 +1138,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QFrame" name="frame_12">
@@ -1206,7 +1239,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLCDNumber" name="vitals1V">
@@ -1226,7 +1262,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QFrame" name="frame_14">
@@ -1343,7 +1382,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLCDNumber" name="vitals2P">
@@ -2365,7 +2407,10 @@ color:red;</string>
       <enum>QLCDNumber::SegmentStyle::Flat</enum>
      </property>
      <property name="value" stdset="0">
-      <double>10000.000000000000000</double>
+      <double>0.000000000000000</double>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">

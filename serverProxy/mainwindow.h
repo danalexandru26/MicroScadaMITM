@@ -24,6 +24,10 @@ public:
     ~MainWindow();
     void proxyServerConnect();
     void displayValues(QString& payload);
+    void connectEvents();
+
+    void onPressAlterValuesT1();
+    void onPressAlterValuesT2();
 
 private:
     Ui::MainWindow *ui;
